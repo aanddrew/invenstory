@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bttf1fp6r2x30"]
+
+[ext_resource type="Texture2D" uid="uid://wus7cq7uo238" path="res://art/ivan.svg" id="1_bw28d"]
+[ext_resource type="Texture2D" uid="uid://i107hndd7r6p" path="res://art/tori.svg" id="2_fk5xk"]
+
+[node name="IvanToriTalking" type="Node2D"]
+
+[node name="Ivan" type="Sprite2D" parent="."]
+position = Vector2(1180, 579)
+texture = ExtResource("1_bw28d")
+
+[node name="Tori" type="Sprite2D" parent="."]
+position = Vector2(144, 496)
+scale = Vector2(0.574796, 0.574796)
+texture = ExtResource("2_fk5xk")
