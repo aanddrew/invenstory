@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch4xuibbc5co4"]
+
+[ext_resource type="Script" path="res://characters/tori.gd" id="1_0r6dw"]
+[ext_resource type="Texture2D" uid="uid://dyj7ay8qneode" path="res://art/tori_front_2.png" id="1_c5bma"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vdwe"]
+
+[node name="Tori" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_0r6dw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_c5bma")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_3vdwe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
