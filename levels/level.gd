@@ -2,23 +2,20 @@ extends Node
 
 @onready var tori: Tori = $Tori
 @onready var tile_map: TileMapLayer = $TileMapLayer
-#var navigable_tiles: Array[Vector2i]
-#var navigable_points: Array[Vector2]
 @onready var astar: AStar2D = AStar2D.new()
 
-# Called when the node enters the scene tree for the first time.
+var tori_path_points: PackedVector2Array
+
 func _ready() -> void:
-	tori.navigation_agent.connect("navigation_finished", self.hide_crosshair)
+	tori.connect("reached_target_location", self.hide_crosshair)
 	get_node("Crosshair").visible = false
 	
 	var tiles : Array[Vector2i] = tile_map.get_used_cells()
 	var tile_id_lookup = {}
-	
-	print(tiles)
+
 	for i in range(0, tiles.size()):
 		var tile_coords : Vector2i = tiles[i]
 		var map_coords : Vector2 = tile_map.map_to_local(tile_coords)
-		#navigable_points.append(map_coords)
 		astar.add_point(i, map_coords)
 		tile_id_lookup[tile_coords] = i
 	
@@ -56,14 +53,7 @@ func _input(event):
 		var to := astar.get_closest_point(try_location)
 		var path := astar.get_point_path(from, to)
 		
-		print(path)
-		
+		tori.path = path
+
 		var to_position := astar.get_point_position(to)
-		tori.set_target_location(to_position)
-		#tori.navigation_agent.
 		move_crosshair(to_position)
-		print(to_position)
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
