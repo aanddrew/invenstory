@@ -12,6 +12,7 @@ script = ExtResource("1_0r6dw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -8.2)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_c5bma")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -21,3 +22,5 @@ zoom = Vector2(2, 2)
 position = Vector2(0, -7.6)
 scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_3vdwe")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
